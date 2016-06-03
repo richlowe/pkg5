@@ -2278,8 +2278,8 @@ PUBLISHER\tSTICKY\tSYSPUB\tENABLED\tTYPE\tSTATUS\tURI\tPROXY
                 # Test disabled origin is not shown in system repo.
                 api_obj = self.image_create(props={"use-system-repo": True})
                 self.pkg("publisher -F tsv")
-                self.assertTrue("localhost:12004" not in self.output)
-                self.assertTrue("localhost:12007" in self.output)
+                self.assertTrue(self.durl2 not in self.output)
+                self.assertTrue(self.durl5 in self.output)
 
                 # Use cache configuration this time.
                 self.__prep_configuration(["disabled_1_origin"],
@@ -2293,8 +2293,8 @@ PUBLISHER\tSTICKY\tSYSPUB\tENABLED\tTYPE\tSTATUS\tURI\tPROXY
                 # Test disabled origin is not shown in system repo.
                 api_obj = self.image_create(props={"use-system-repo": True})
                 self.pkg("publisher -F tsv")
-                self.assertTrue("localhost:12004" not in self.output)
-                self.assertTrue("localhost:12007" in self.output)
+                self.assertTrue(self.durl2 not in self.output)
+                self.assertTrue(self.durl5 in self.output)
 
                 self.__prep_configuration(["disabled_2_origins"])
                 self.__set_responses("disabled_2_origins")
@@ -2307,8 +2307,8 @@ PUBLISHER\tSTICKY\tSYSPUB\tENABLED\tTYPE\tSTATUS\tURI\tPROXY
                 # system repo as if no origin is set.
                 api_obj = self.image_create(props={"use-system-repo": True})
                 self.pkg("publisher -F tsv")
-                self.assertTrue("localhost:12004" not in self.output)
-                self.assertTrue("localhost:12007" not in self.output)
+                self.assertTrue(self.durl2 not in self.output)
+                self.assertTrue(self.durl5 not in self.output)
 
                 # Use cache configuration this time.
                 self.__prep_configuration(["disabled_2_origins"],
@@ -2323,8 +2323,8 @@ PUBLISHER\tSTICKY\tSYSPUB\tENABLED\tTYPE\tSTATUS\tURI\tPROXY
                 # system repo as if no origin is set.
                 api_obj = self.image_create(props={"use-system-repo": True})
                 self.pkg("publisher -F tsv")
-                self.assertTrue("localhost:12004" not in self.output)
-                self.assertTrue("localhost:12007" not in self.output)
+                self.assertTrue(self.durl2 not in self.output)
+                self.assertTrue(self.durl5 not in self.output)
 
 
         __smf_cmds_template = { \
