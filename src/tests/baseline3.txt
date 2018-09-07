@@ -1,1 +1,0 @@
-cli.t_pkgrepo.py TestPkgRepo.test_10_list|fail
