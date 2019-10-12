@@ -2529,8 +2529,10 @@ DocumentRoot "/"
 # The following lines prevent .htaccess and .htpasswd files from being
 # viewed by Web clients.
 #
-<FilesMatch "^\.ht">
-    Require all denied
+<FilesMatch "^\\.ht">
+    Order allow,deny
+    Deny from all
+    Satisfy All
 </FilesMatch>
 
 #

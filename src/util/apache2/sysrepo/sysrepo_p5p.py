@@ -25,6 +25,7 @@
 from __future__ import print_function
 import pkg.p5p
 
+import errno
 import os
 import shutil
 import six
@@ -146,7 +147,7 @@ class SysrepoP5p(object):
                         try:
                                 st_p5p = os.stat(self.p5p_path)
                         except OSError as e:
-                                if e.errno == os.errno.ENOENT:
+                                if e.errno == errno.ENOENT:
                                         raise MissingArchiveException(
                                             self.p5p_path)
                         try:
@@ -155,7 +156,7 @@ class SysrepoP5p(object):
                                         open(timestamp_path, "wb").close()
                                         update = True
                         except OSError as e:
-                                if e.errno == os.errno.ENOENT:
+                                if e.errno == errno.ENOENT:
                                         open(timestamp_path, "wb").close()
                                         update = True
 
@@ -213,7 +214,7 @@ class SysrepoP5p(object):
                         finally:
                                 p5p_update_lock.release()
                 except OSError as e:
-                        if e.errno == os.errno.ENOENT:
+                        if e.errno == errno.ENOENT:
                                 return open(cat_path, "rb")
                         else:
                                 raise
@@ -357,7 +358,7 @@ class SysrepoP5p(object):
                                 raise UnknownPathException(path)
                 except OSError as e:
                         print(e.errno)
-                        if e.errno == os.errno.ENOENT:
+                        if e.errno == errno.ENOENT:
                                 self.log_Exception(
                                     status=SERVER_NOTFOUND_STATUS)
                 except UnknownPathException as e:
