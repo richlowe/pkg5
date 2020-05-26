@@ -492,7 +492,7 @@ fromstr(PyObject *self, PyObject *args, PyObject *kwdict)
 				}
 
 				if (strncmp(keystr, "hash=", 5) == 0) {
-					char *as = PyBytes_AsString(attr);
+					const char *as = PyUnicode_AsUTF8(attr);
 					if (hashstr && strcmp(as, hashstr)) {
 						invalid(notident);
 						CLEANUP_REFS;
@@ -528,7 +528,7 @@ fromstr(PyObject *self, PyObject *args, PyObject *kwdict)
 				    i - vs);
 #endif
 				if (strncmp(keystr, "hash=", 5) == 0) {
-					char *as = PyBytes_AsString(attr);
+					const char *as = PyUnicode_AsUTF8(attr);
 					if (hashstr && strcmp(as, hashstr)) {
 						invalid(notident);
 						CLEANUP_REFS;
@@ -585,7 +585,7 @@ fromstr(PyObject *self, PyObject *args, PyObject *kwdict)
 		attr = PyString_FromStringAndSize(&str[vs], i - vs);
 #endif
 		if (strncmp(keystr, "hash=", 5) == 0) {
-			char *as = PyBytes_AsString(attr);
+			const char *as = PyUnicode_AsUTF8(attr);
 			if (hashstr && strcmp(as, hashstr)) {
 				invalid(notident);
 				CLEANUP_REFS;
