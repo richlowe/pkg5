@@ -6,7 +6,7 @@ pkgmogrify \- Image Packaging System manifest transmogrifier
 .SH SYNOPSIS
 .LP
 .nf
-/usr/bin/pkgmogrify [-vi] [-I \fIincludedir\fR]...
+/usr/bin/pkgmogrify [-vir] [-I \fIincludedir\fR]...
     [-D \fImacro\fR=\fIvalue\fR]... [-O \fIoutputfile\fR]
     [-P \fIprintfile\fR] [\fIinputfile\fR ...]
 .fi
@@ -136,6 +136,17 @@ Write output resulting from transform directive print operations to the specifie
 .sp .6
 .RS 4n
 Ignore include directives in files. Only files specified on the command line (or \fBstdin\fR) are processed.
+.RE
+
+.sp
+.ne 2
+.mk
+.na
+\fB\fB-r\fR\fR
+.ad
+.sp .6
+.RS 4n
+Keep raw action values to avoid spurious automatic formatting such as quote removal. This is especially useful when generating intermediate manifests where actions values may eventually contain whitespace characters but macro substitution does not occur yet.
 .RE
 
 .sp

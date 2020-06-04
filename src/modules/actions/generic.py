@@ -314,7 +314,17 @@ class Action(object):
                                     "=".join((k, quote_attr_value(lmt)))
                                     for lmt in v
                                 ])
-                        elif " " in v or "'" in v or "\"" in v or v == "":
+                        # Raw values only are quoted, do not add quotes again.
+                        elif len(v) > 1 and \
+                            ((v.startswith("\"") and v.endswith("\"")) or \
+                             (v.startswith("'") and v.endswith("'"))):
+                                out += " " + k + "=" + v
+                        # Action values with macros should not be quoted
+                        # automatically as they may contain whitespaces but
+                        # in this case their value should have been already
+                        # be appropriately enclosed in quotes.
+                        elif (" " in v or "'" in v or "\"" in v or v == "") \
+                            and "$(" not in v:
                                 if "\"" not in v:
                                         out += " " + k + "=\"" + v + "\""
                                 elif "'" not in v:

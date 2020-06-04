@@ -48,7 +48,7 @@ def usage(errmsg="", exitcode=EXIT_BADOPT):
 
         print(_("""\
 Usage:
-        pkgmogrify [-vi] [-I includedir ...] [-D macro=value ...]
+        pkgmogrify [-vir] [-I includedir ...] [-D macro=value ...]
             [-O outputfile] [-P printfile] [inputfile ...]"""))
         sys.exit(exitcode)
 
@@ -64,13 +64,14 @@ def main_func():
         printfilename = None
         verbose = False
         ignoreincludes = False
+        raw = False
         includes = []
         macros = {}
         printinfo = []
         output = []
 
         try:
-                opts, pargs = getopt.getopt(sys.argv[1:], "ivD:I:O:P:?", ["help"])
+                opts, pargs = getopt.getopt(sys.argv[1:], "irvD:I:O:P:?", ["help"])
                 for opt, arg in opts:
                         if opt == "-D":
                                 if "=" not in arg:
@@ -89,6 +90,8 @@ def main_func():
                                 printfilename = arg
                         if opt == "-v":
                                 verbose = True
+                        if opt == "-r":
+                                raw = True
                         if opt in ("--help", "-?"):
                                 usage(exitcode=EXIT_OK)
 
@@ -97,7 +100,7 @@ def main_func():
 
         try:
                 mog.process_mog(pargs, ignoreincludes, verbose, includes,
-                    macros, printinfo, output, error_cb=error)
+                    macros, printinfo, output, error_cb=error, raw=raw)
         except RuntimeError as e:
                 sys.exit(EXIT_OOPS)
 

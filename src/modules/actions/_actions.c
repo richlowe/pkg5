@@ -161,6 +161,7 @@ fromstr(PyObject *self, PyObject *args, PyObject *kwdict)
 	int hash_allowed;
 	char quote = '\0';
 	bool concat = false;
+	int raw = 0; /* boolean predicate */
 	PyObject *act_args = NULL;
 	PyObject *act_class = NULL;
 	PyObject *act_data = NULL;
@@ -197,7 +198,7 @@ fromstr(PyObject *self, PyObject *args, PyObject *kwdict)
 	 * the order you want them to be assigned.  (A subtle point missing from
 	 * the Python documentation.)
 	 */
-	static char *kwlist[] = { "string", "data", NULL };
+	static char *kwlist[] = { "string", "data", "raw", NULL };
 
 	/* Assume data=None by default. */
 	act_data = Py_None;
@@ -208,8 +209,8 @@ fromstr(PyObject *self, PyObject *args, PyObject *kwdict)
 	 * object provided is a Unicode object, string object, or a character
 	 * buffer.
 	 */
-	if (PyArg_ParseTupleAndKeywords(args, kwdict, "et#|O:fromstr", kwlist,
-	    "utf-8", &str, &strl, &act_data) == 0) {
+	if (PyArg_ParseTupleAndKeywords(args, kwdict, "et#|Op:fromstr", kwlist,
+	    "utf-8", &str, &strl, &act_data, &raw) == 0) {
 		return (NULL);
 	}
 
@@ -373,7 +374,7 @@ fromstr(PyObject *self, PyObject *args, PyObject *kwdict)
 					prevstate = state;
 					state = QVAL;
 					quote = str[i];
-					vs = i + 1;
+					vs = i + (!raw);
 				} else if (str[i] == ' ' || str[i] == '\t' ||
 				    str[i] == '\n') {
 					malformed("missing value");
@@ -480,10 +481,10 @@ fromstr(PyObject *self, PyObject *args, PyObject *kwdict)
 					Py_XDECREF(attr);
 #if PY_MAJOR_VERSION >= 3
 					attr = PyUnicode_FromStringAndSize(
-					    &str[vs], i - vs);
+					    &str[vs], i + raw - vs);
 #else
 					attr = PyString_FromStringAndSize(
-					    &str[vs], i - vs);
+					    &str[vs], i + raw - vs);
 #endif
 					if (attr == NULL) {
 						CLEANUP_REFS;

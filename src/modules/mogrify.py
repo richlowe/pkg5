@@ -674,7 +674,7 @@ def process_error(msg, error_cb=None):
                 raise
 
 def process_mog(file_args, ignoreincludes, verbose, includes, macros,
-    printinfo, output, error_cb=None, sys_supply_files=[]):
+    printinfo, output, error_cb=None, sys_supply_files=[], raw=False):
         """Entry point for mogrify logic.
         file_args: input files to be mogrified. If not provided, use stdin
             instead.
@@ -698,6 +698,10 @@ def process_mog(file_args, ignoreincludes, verbose, includes, macros,
 
         sys_supply_files: used for other systems or modules to supply
         additional input files.
+
+        raw: used to indicate that action values should not be formatted such
+        as quote removal. Such modification may break intermediate manifest
+        generation in case of whitespace characters are present.
         """
 
         transforms = []
@@ -747,7 +751,8 @@ def process_mog(file_args, ignoreincludes, verbose, includes, macros,
                         prepended_macro = None
 
                 try:
-                        act = pkg.actions.fromstr(line)
+                        # raw: avoid stripping quotes around values
+                        act = pkg.actions.fromstr(line, raw=raw)
                 except (pkg.actions.MalformedActionError,
                     pkg.actions.UnknownActionError,
                     pkg.actions.InvalidActionError) as e:
