@@ -21,6 +21,7 @@
 #
 # Copyright (c) 2008, 2019, Oracle and/or its affiliates. All rights reserved.
 # Copyright (c) 2012, OmniTI Computer Consulting, Inc. All rights reserved.
+# Copyright 2020 OmniOS Community Edition (OmniOSce) Association.
 #
 
 from __future__ import print_function
@@ -1727,7 +1728,6 @@ setup(cmdclass = cmdclasses,
     ext_modules = ext_modules,
     classifiers = [
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
     ]
 )
 
