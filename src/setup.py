@@ -107,7 +107,7 @@ cffi_dir = os.path.normpath(os.path.join(pwd, "cffi_src"))
 
 # Extract Python minor version.
 py_version = '.'.join(platform.python_version_tuple()[:2])
-assert py_version in ('3.5')
+assert py_version in ('3.5' '3.9')
 py_install_dir = 'usr/lib/python' + py_version + '/vendor-packages'
 
 py64_executable = '/usr/bin/python' + py_version
@@ -1429,9 +1429,6 @@ class Extension(distutils.core.Extension):
 compile_args = None
 if osname in ("sunos", "linux", "darwin"):
         compile_args = [ "-O3", "-D__EXTENSIONS__", "-Werror" ]
-if osname == "sunos":
-        link_args = ["-zdefs"]
-else:
         link_args = []
 
 ext_modules = [

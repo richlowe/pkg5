@@ -25,6 +25,13 @@
 # pycurl package.
 <transform dir file path=$(PYDIRVP)/share.* -> edit path $(PYDIRVP) usr>
 
+# While we are building pkg for multiple python versions, `pkgdepend generate`
+# will run both versions while running depthlimitedmf and leave .pyc files in
+# the wrong /usr/lib/pythonXY in the proto area, remove them.
+#
+# We always check PYDIRVP (the default python) and hard-code the "other" to drop.
+<transform file path=$(PYDIRVP)/.*/.*cpython-39.pyc -> drop>
+
 # Reduce manifests to the bare minimum; we don't really care about anything
 # but path.
 <transform file -> print file path=%(path)>

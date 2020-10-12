@@ -15,7 +15,13 @@ CC = /usr/gcc/7/bin/gcc
 CFLAGS = -m64 -Wall
 CPPFLAGS = -D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS
 
-PYTHON_VERSION=3.5
+# The version of python used by the scripts, and the 'primary' version in
+# packaging, which is transformed into the others
+PYTHON_VERSION = 3.5
+
+# The full set of versions for which modules are delivered
+PYTHON_VERSIONS = 3.5 3.9
+
 PEP8 = /usr/bin/pep8-$(PYTHON_VERSION)
 PYTHON = /usr/bin/python$(PYTHON_VERSION)
 PYTHON_ROOT= usr/lib/python$(PYTHON_VERSION)

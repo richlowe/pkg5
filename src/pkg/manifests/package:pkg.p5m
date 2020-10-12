@@ -465,12 +465,19 @@ license lic_gustaebel license="MIT (Lars Gustaebel)" \
 license lic_minisat license="MIT (MiniSAT)" \
     com.oracle.info.description="MiniSAT 1.14.1" com.oracle.info.name=MiniSAT \
     com.oracle.info.tpno=17867 com.oracle.info.version=1.14.1
+license cr_Oracle license=cr_Oracle
 depend type=group fmri=package/pkg/zones-proxy \
     variant.opensolaris.zone=nonglobal
 # cross zone dependency on linked image metadata
 #depend type=parent fmri=feature/package/dependency/self #    variant.opensolaris.zone=nonglobal
 depend type=require fmri=crypto/ca-certificates
 # CFFI import is done in C code, so it isn't picked up by pkgdepend
-depend type=require fmri=library/python/cffi-35
+depend type=require fmri=library/python/cffi
+depend type=require fmri=library/python/prettytable
 depend type=require fmri=locale/en
+# These usually come in as dependencies of the install/beadm package, but
+# during the transition to python 3.9, we need to ensure we have both
+# (and since we have a specific dependency on the python libbe module,
+#  it's probably a good idea anyway)
 depend type=require fmri=system/library/python/libbe-35
+depend type=require fmri=system/library/python/libbe-39
