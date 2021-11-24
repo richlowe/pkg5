@@ -979,9 +979,11 @@ adm:NP:6445::::::
                 self.pkg("install fat")
                 self.pkg("install empty")
                 self.__run_empty_attrs_searches(remote=False)
+                # We skew the group/gid by 5 to avoid collisions with the
+                # misc_files etc/group
                 for i in range(0, indexer.MAX_FAST_INDEXED_PKGS + 1):
                         self.pkgsend_bulk(durl, self.empty_attr_pkg10_templ.format(
-                            ver=i))
+                            ver=i+5))
                 self.pkg("install 'empty*'")
                 self.pkg("search 'empty*'")
 
