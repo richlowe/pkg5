@@ -143,7 +143,7 @@ class CfgFile(object):
             for k in template:
                 if "PKG_ACCOUNTS_DEBUG" in os.environ and os.environ["PKG_ACCOUNTS_DEBUG"] == "verbose":
                     print("[D]     key: %s\tseekval: %s" % (k, template[k]))
-                if k in val:
+                if val is not None and k in val:
                     if "PKG_ACCOUNTS_DEBUG" in os.environ and os.environ["PKG_ACCOUNTS_DEBUG"] == "verbose":
                         print("    val[k]: %s" % (val[k]))
                     ### str() allows e.g. uid in template to be a numeric type
