@@ -1440,7 +1440,7 @@ rpool/fail/fail2	{root}/fail2	zfs	dev=0	0
                 self.pkg("install b2", exit=1)
                 # this should pass because var/pkg/config is not reserved
                 self.pkg("install b3", exit=0)
-                
+
                 if portable.osname != "sunos":
                         return
                 self.pkg("install b4", exit=1)
@@ -6249,7 +6249,7 @@ adm:NP:6445::::::
                 self.pkg("verify simpleuser")
 
                 # remove the user from /etc/passwd
-                pdata[-1] = "misswiggy:x:5:0:& loves Kermie:/:"
+                pdata[-1] = ""
                 with open(ppath, "w") as f:
                         f.writelines(pdata)
                 self.pkg("verify simpleuser", exit=1)
@@ -6260,8 +6260,8 @@ adm:NP:6445::::::
                 self.pkg("verify simpleuser")
 
                 # remove the user completely
-                pdata[-1] = "misswiggy:x:5:0:& loves Kermie:/:"
-                sdata[-1] = "misswiggy:*LK*:14579::::::"
+                pdata[-1] = ""
+                sdata[-1] = ""
                 with open(ppath, "w") as f:
                         f.writelines(pdata)
                 with open(spath, "w") as f:
@@ -6296,6 +6296,7 @@ adm:NP:6445::::::
                 # verify that upgrading package to version that implicitly
                 # uses *LK* default causes password to change and that it
                 # verifies correctly
+
                 self.pkg("update simpleuser2@2")
                 self.pkg("verify simpleuser2")
                 with open(spath) as f:
