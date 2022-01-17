@@ -1,11 +1,20 @@
+    pkg:/SUNWcs
+    pkg:/archiver/gnu-tar
+    pkg:/crypto/ca-certificates
+    pkg:/developer/build/make
+    pkg:/developer/build/onbld
+    pkg:/developer/gnome/gettext
+    pkg:/developer/gnome/gnome-doc-utils
+    pkg:/developer/python/pylint
+    pkg:/developer/versioning/mercurial
     pkg:/library/python/cffi-35
     pkg:/library/python/cherrypy-35
     pkg:/library/python/coverage-35
-    pkg:/library/python/jsonrpclib-35
     pkg:/library/python/cryptography-35
     pkg:/library/python/jsonrpclib-35
     pkg:/library/python/jsonschema-35
     pkg:/library/python/mako-35
+    pkg:/library/python/pep8-35
     pkg:/library/python/ply-35
     pkg:/library/python/portend-35
     pkg:/library/python/prettytable-35
@@ -14,26 +23,24 @@
     pkg:/library/python/pyopenssl-35
     pkg:/library/python/rapidjson-35
     pkg:/library/python/six-35
+    pkg:/locale/en
+    pkg:/network/netcat
     pkg:/package/svr4
     pkg:/runtime/python-35
     pkg:/service/network/dns/mdns
-    pkg:/shell/ksh93
-    pkg:/system/header
-    pkg:/system/library
-    #
-    pkg:/SUNWcs
-    pkg:/archiver/gnu-tar
-    pkg:/developer/build/make
-    pkg:/developer/build/onbld
-    pkg:/package/svr4
-    pkg:/service/network/dns/mdns
     pkg:/shell/bash
+    pkg:/shell/ksh93
+    pkg:/system/bhyve
+    pkg:/system/bhyve/firmware
     pkg:/system/header
     pkg:/system/library
+    pkg:/system/library/bhyve
     pkg:/system/library/dbus
+    pkg:/system/library/gcc-4-runtime
     pkg:/system/library/math
     pkg:/system/library/security/crypto
     pkg:/system/network
+    pkg:/system/qemu/kvm
     pkg:/system/zones
     pkg:/text/gnu-diffutils
     pkg:/text/gnu-gettext
@@ -42,8 +49,4 @@
     pkg:/text/tidy
     pkg:/web/server/apache-24
     pkg:/web/server/apache-24/module/apache-wsgi-35
-    pkg:/web/wget
-    pkg:/SUNWcs
-    pkg:/system/zones
-    pkg:/system/library/gcc-4-runtime
     pkg:/web/wget
