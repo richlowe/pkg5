@@ -38,6 +38,7 @@
     pkg:/system/library/dbus
     pkg:/system/library/gcc-4-runtime
     pkg:/system/library/math
+    pkg:/system/library/python/libbe-35
     pkg:/system/library/security/crypto
     pkg:/system/network
     pkg:/system/qemu/kvm
