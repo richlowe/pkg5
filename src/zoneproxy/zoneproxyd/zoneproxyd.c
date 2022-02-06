@@ -1169,7 +1169,7 @@ __zpd_fattach_zone(zoneid_t zid, int door, boolean_t detach_only)
 	if (pid < 0) {
 		(void) ct_tmpl_clear(tmpl_fd);
 		(void) fprintf(stderr,
-		    "Can't fork to add zoneproxy door to zoneid %ld\n", zid);
+		    "Can't fork to add zoneproxy door to zoneid %d\n", zid);
 		drop_privs();
 		return;
 	}
@@ -1203,7 +1203,7 @@ __zpd_fattach_zone(zoneid_t zid, int door, boolean_t detach_only)
 		return;
 	}
 
-	(void) fprintf(stderr, "Unable to attach door to zoneid: %ld\n", zid);
+	(void) fprintf(stderr, "Unable to attach door to zoneid: %d\n", zid);
 
 	if (WEXITSTATUS(stat) == 1)
 		(void) fprintf(stderr, "Cannot enter zone\n");
@@ -1213,7 +1213,7 @@ __zpd_fattach_zone(zoneid_t zid, int door, boolean_t detach_only)
 	else if (WEXITSTATUS(stat) == 3)
 		(void) fprintf(stderr, "Unable to fattach file: %s\n", path);
 
-	(void) fprintf(stderr, "Internal error entering zone: %ld\n", zid);
+	(void) fprintf(stderr, "Internal error entering zone: %d\n", zid);
 	drop_privs();
 }
 
@@ -1237,12 +1237,12 @@ __is_native_zone(zoneid_t zid)
 	const char *name_list[] = { "ipkg", "sn1", "labeled" };
 	uint_t nbrands = sizeof (name_list) / sizeof (const char *);
 	char zonename[ZONENAME_MAX];
-	
+
 	/* global zones have a NULL brand, but can be detected by zid. */
 	if (zid == 0) {
 	        return (B_TRUE);
 	}
-	
+
 	if (getzonenamebyid(zid, zonename, sizeof(zonename))!= -1) {
 		if( zone_get_brand(zonename, brand, sizeof(brand)) == Z_OK) {
 			for (i = 0; i < nbrands; i++) {

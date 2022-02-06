@@ -40,10 +40,6 @@ do_pub_checks = True
 
 # key = python package implementing those checks
 # pkglint.ext.other = org.foo.barcheck
-
-# List modules or methods which should be excluded from
-# execution during each lint run.
-pkglint.exclude = pkg.lint.pkglint_action.PkgActionChecker.arch64
 pkglint.ext.opensolaris = pkg.lint.opensolaris
 
 # The version pattern we use when searching for manifests

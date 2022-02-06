@@ -22,18 +22,15 @@
 # Copyright (c) 2011, 2015, Oracle and/or its affiliates. All rights reserved.
 #
 
-INSTALL =	/usr/bin/python3.5 ../../setup.py installfile
-CC =		gcc
-LINT =		lint
+include ../../Makefile.com
+
+INSTALL =	$(PYTHON) ../../setup.py installfile
 MKDIR =		mkdir -p
 PROTO_AREA:sh =	echo $(hg root 2>/dev/null || git rev-parse --show-toplevel)/proto/root_$(uname -p)
 ZONES_LIBDIR =	$(PROTO_AREA)/usr/lib/zones
 ZONES_PROG =	$(PROG:%=$(ZONES_LIBDIR)/%)
 
-LINTFLAGS =
-CPPFLAGS =	-D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS -I../zoneproxyd 
-CFLAGS = 	-Wall -O3
-LDFLAGS =	-Bdirect -zdefs
+CPPFLAGS +=	-I../zoneproxyd
 LDLIBS =
 
 CLEANFILES =	$(PROG) $(OBJS)

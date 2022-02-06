@@ -23,6 +23,8 @@
 # Copyright (c) 2007, 2010, Oracle and/or its affiliates. All rights reserved.
 #
 
+include ../Makefile.com
+
 MACH:sh = uname -p
 
 INSTALL = /usr/sbin/install
@@ -158,3 +160,4 @@ $(BHYVEBRANDPKG)/createzone: $(BHYVEBRANDPKG)
 $(BHYVEBRANDPKG)/socat: $(BHYVEBRANDPKG)
 	rm -f $@; $(INSTALL) -f $(BHYVEBRANDPKG) -m 0444 kvm/socat
 
+.KEEP_STATE:

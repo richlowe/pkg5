@@ -22,6 +22,8 @@
 # Copyright (c) 2012, OmniTI Computer Consulting, Inc. All rights reserved.
 #
 
+include ../Makefile.com
+
 PKGVERS_COMPONENT = 0.5.11
 PKGVERS_BUILTON   = 5.11
 UPDATENUM         = 0
@@ -72,12 +74,11 @@ $(PUBLISHALL)MANIFESTS      = $(ALL_MANIFESTS)
 
 # PKGCMDENV needs to specify the interpreter explicitly since the shebang
 # lines include -Es which suppresses the use of non-default environments.
-PYTHON3		  = python3.5
-PYDIR		  = usr/lib/$(PYTHON3)
+PYDIR		  = $(PYTHON_ROOT)
 PYDIRVP		  = $(PYDIR)/vendor-packages
 PKGCMDENV         = \
 	PATH=$(PKGROOT)/usr/bin:/usr/sbin:/usr/bin \
-	PYTHONPATH=$(PKGROOT)/$(PYDIRVP) $(PYTHON3) $(PKGROOT)/usr/bin/
+	PYTHONPATH=$(PKGROOT)/$(PYDIRVP) $(PYTHON) $(PKGROOT)/usr/bin/
 PKG               = $(PKGCMDENV)/pkg
 PKGDEPEND         = $(PKGCMDENV)/pkgdepend
 PKGDIFF           = $(PKGCMDENV)/pkgdiff

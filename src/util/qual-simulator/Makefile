@@ -22,8 +22,10 @@
 # Copyright (c) 2009, 2015, Oracle and/or its affiliates. All rights reserved.
 #
 
+include ../../Makefile.com
+
 run: stats.py
-	python3.5 scenario.py
+	$(PYTHON) scenario.py
 
 stats.py:
 	cp ../../modules/client/transport/stats.py .

@@ -23,7 +23,7 @@
 # Copyright (c) 2007, 2016, Oracle and/or its affiliates. All rights reserved.
 #
 
-PYTHON35 = /usr/bin/python3.5
+include Makefile.com
 
 all := TARGET = all
 install := TARGET = install
@@ -47,20 +47,19 @@ PYLINT_VER_CMD = PYTHONPATH= /usr/bin/pkg info pkg:/developer/python/pylint | \
 	/usr/bin/grep Version | \
 	/usr/bin/awk -F: '{print $$2}' | /usr/bin/sed -e 's/ //g'
 
-PEP8 = /usr/bin/pep8
 JOBS = 8
 
 SUBDIRS=brand zoneproxy util/mkcert
 
 all: $(SUBDIRS)
-	$(PYTHON35) setup.py build
+	$(PYTHON) setup.py build
 
 clean: $(SUBDIRS)
-	$(PYTHON35) setup.py clean
+	$(PYTHON) setup.py clean
 	@cd pkg; pwd; make clean
 
 clobber: $(SUBDIRS)
-	$(PYTHON35) setup.py clobber
+	$(PYTHON) setup.py clobber
 	@cd pkg; pwd; make clobber
 
 #
@@ -68,19 +67,19 @@ clobber: $(SUBDIRS)
 # it's the best way to ensure things stay pylint clean.
 #
 install: $(SUBDIRS)
-	CC=$(CC) $(PYTHON35) setup.py install
+	CC=$(CC) $(PYTHON) setup.py install
 
 lint:
-	CC=$(CC) $(PYTHON35) setup.py lint
+	CC=$(CC) $(PYTHON) setup.py lint
 	@cd zoneproxy; pwd; make lint
 
 clint:
-	CC=$(CC) $(PYTHON35) setup.py clint
+	CC=$(CC) $(PYTHON) setup.py clint
 	@cd zoneproxy; pwd; make lint
 
 pylint: install
-	PYLINT_VER=$(PYLINT_VER_CMD:sh) $(PYTHON35) setup.py pylint
-	PYLINT_VER=$(PYLINT_VER_CMD:sh) $(PYTHON35) setup.py pylint_py3k
+	PYLINT_VER=$(PYLINT_VER_CMD:sh) $(PYTHON) setup.py pylint
+	PYLINT_VER=$(PYLINT_VER_CMD:sh) $(PYTHON) setup.py pylint_py3k
 
 pep8:
 	$(PEP8) --statistics --count `cat tests/pep8-whitelist.txt`
@@ -99,6 +98,6 @@ packages: install
 		PYTHONPATH=$$(hg root 2>/dev/null || git rev-parse --show-toplevel)/proto/root_$$(uname -p)/usr/lib/python2.7/vendor-packages
 
 test: install
-	-pfexec $(PYTHON35) tests/run.py -j ${JOBS}
+	-pfexec $(PYTHON) tests/run.py -j ${JOBS}
 
 FRC:
