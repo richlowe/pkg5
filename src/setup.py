@@ -117,14 +117,14 @@ svc_method_dir = 'lib/svc/method'
 svc_share_dir = 'lib/svc/share'
 
 man1_dir = 'usr/share/man/man1'
-man1m_dir = 'usr/share/man/man1m'
-man5_dir = 'usr/share/man/man5'
+man7_dir = 'usr/share/man/man7'
+man8_dir = 'usr/share/man/man8'
 man1_ja_JP_dir = 'usr/share/man/ja_JP.UTF-8/man1'
-man1m_ja_JP_dir = 'usr/share/man/ja_JP.UTF-8/man1m'
-man5_ja_JP_dir = 'usr/share/man/ja_JP.UTF-8/man5'
+man7_ja_JP_dir = 'usr/share/man/ja_JP.UTF-8/man7'
+man8_ja_JP_dir = 'usr/share/man/ja_JP.UTF-8/man8'
 man1_zh_CN_dir = 'usr/share/man/zh_CN.UTF-8/man1'
-man1m_zh_CN_dir = 'usr/share/man/zh_CN.UTF-8/man1m'
-man5_zh_CN_dir = 'usr/share/man/zh_CN.UTF-8/man5'
+man7_zh_CN_dir = 'usr/share/man/zh_CN.UTF-8/man7'
+man8_zh_CN_dir = 'usr/share/man/zh_CN.UTF-8/man8'
 
 ignored_deps_dir = 'usr/share/pkg/ignored_deps'
 resource_dir = 'usr/share/lib/pkg'
@@ -242,13 +242,13 @@ man1_files = [
         'man/pkgrecv.1',
         'man/pkgrepo.1',
         ]
-man1m_files = [
-        'man/pkg.depotd.1m',
-        'man/pkg.depot-config.1m',
-        'man/pkg.sysrepo.1m'
+man7_files = [
+        'man/pkg.7'
         ]
-man5_files = [
-        'man/pkg.5'
+man8_files = [
+        'man/pkg.depotd.8',
+        'man/pkg.depot-config.8',
+        'man/pkg.sysrepo.8'
         ]
 
 man1_ja_files = [
@@ -264,12 +264,12 @@ man1_ja_files = [
         'man/ja_JP/pkgrecv.1',
         'man/ja_JP/pkgrepo.1',
         ]
-man1m_ja_files = [
-        'man/ja_JP/pkg.depotd.1m',
-        'man/ja_JP/pkg.sysrepo.1m'
+man7_ja_files = [
+        'man/ja_JP/pkg.7'
         ]
-man5_ja_files = [
-        'man/ja_JP/pkg.5'
+man8_ja_files = [
+        'man/ja_JP/pkg.depotd.8',
+        'man/ja_JP/pkg.sysrepo.8'
         ]
 
 man1_zh_CN_files = [
@@ -285,12 +285,12 @@ man1_zh_CN_files = [
         'man/zh_CN/pkgrecv.1',
         'man/zh_CN/pkgrepo.1',
         ]
-man1m_zh_CN_files = [
-        'man/zh_CN/pkg.depotd.1m',
-        'man/zh_CN/pkg.sysrepo.1m'
+man7_zh_CN_files = [
+        'man/zh_CN/pkg.7'
         ]
-man5_zh_CN_files = [
-        'man/zh_CN/pkg.5'
+man8_zh_CN_files = [
+        'man/zh_CN/pkg.depotd.8',
+        'man/zh_CN/pkg.sysrepo.8'
         ]
 
 packages = [
@@ -1596,14 +1596,14 @@ cmdclasses = {
 # all builds of IPS should have manpages
 data_files += [
         (man1_dir, man1_files),
-        (man1m_dir, man1m_files),
-        (man5_dir, man5_files),
+        (man7_dir, man7_files),
+        (man8_dir, man8_files),
         (man1_ja_JP_dir, man1_ja_files),
-        (man1m_ja_JP_dir, man1m_ja_files),
-        (man5_ja_JP_dir, man5_ja_files),
+        (man7_ja_JP_dir, man7_ja_files),
+        (man8_ja_JP_dir, man8_ja_files),
         (man1_zh_CN_dir, man1_zh_CN_files),
-        (man1m_zh_CN_dir, man1m_zh_CN_files),
-        (man5_zh_CN_dir, man5_zh_CN_files),
+        (man7_zh_CN_dir, man7_zh_CN_files),
+        (man8_zh_CN_dir, man8_zh_CN_files),
         (resource_dir, resource_files),
         ]
 # add transforms

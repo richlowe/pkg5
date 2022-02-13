@@ -25,7 +25,7 @@ pkgsend \- Image Packaging System の公開クライアント
 .SH 機能説明
 .sp
 .LP
-\fBpkgsend\fR では、パッケージのマニフェストを使用して、新しいパッケージと新しいパッケージのバージョンをイメージパッケージングリポジトリに公開できます。リポジトリを作成または管理するには、\fBpkgrepo\fR(1) を参照してください。既存のリポジトリ内でパッケージからパッケージアーカイブを作成するには、\fBpkgrecv\fR(1) を参照してください。パッケージのマニフェストの詳細は、\fBpkg\fR(5) を参照してください。
+\fBpkgsend\fR では、パッケージのマニフェストを使用して、新しいパッケージと新しいパッケージのバージョンをイメージパッケージングリポジトリに公開できます。リポジトリを作成または管理するには、\fBpkgrepo\fR(1) を参照してください。既存のリポジトリ内でパッケージからパッケージアーカイブを作成するには、\fBpkgrecv\fR(1) を参照してください。パッケージのマニフェストの詳細は、\fBpkg\fR(7) を参照してください。
 .sp
 .LP
 \fBpkgsend publish\fR 操作のあとで、\fIrepo_uri_or_path\fR リポジトリが \fBpkg search\fR 操作をサポートする必要がある場合は、リポジトリ上で \fBpkgrepo refresh\fR を実行して、検索インデックスを更新してください。
@@ -152,7 +152,7 @@ SVR4 \fBDESC\fR パラメータは、\fBpkg.description\fR 値に変換されま
 .RS 4n
 指定されたパッケージマニフェストを使用するパッケージをターゲットパッケージリポジトリに公開します。これにより、指定されたソースからそのパッケージ用のファイルが取得されます。複数のマニフェストが指定されている場合、それらのマニフェストは指定された順序で追加されます。マニフェストが指定されていない場合は、\fBstdin\fR からマニフェストが読み取られます。
 .sp
-指定しない場合、\fBpkgsend publish\fR はビルドバージョンをパッケージ FMRI に追加します。\fBpublish\fR ツールは、タイムスタンプも (UTC の現在時間) をパッケージ FMRI に追加します。パッケージ FMRI のバージョン文字列については、\fBpkg \fR(5) のマニュアルページを参照してください。
+指定しない場合、\fBpkgsend publish\fR はビルドバージョンをパッケージ FMRI に追加します。\fBpublish\fR ツールは、タイムスタンプも (UTC の現在時間) をパッケージ FMRI に追加します。パッケージ FMRI のバージョン文字列については、\fBpkg\fR(7) のマニュアルページを参照してください。
 .sp
 複数の \fBpkgsend publish\fR プロセスが同じ \fB-s\fR リポジトリに同時に公開する場合は、\fB--no-catalog\fR オプションを指定することをお勧めします。下記の \fB--no-catalog\fR オプションの説明を参照してください。
 .sp
@@ -366,7 +366,7 @@ $ \fBpkgsend publish -s /tmp/example_repo -d /tmp/pkg_files \e\fR
 .SH 属性
 .sp
 .LP
-次の属性については、\fBattributes\fR(5) を参照してください。
+次の属性については、\fBattributes\fR(7) を参照してください。
 .sp
 
 .sp
@@ -385,7 +385,7 @@ _
 .SH 関連項目
 .sp
 .LP
-\fBpkgdepend\fR(1), \fBpkgrepo\fR(1), \fBpkg.depotd\fR(1M), \fBpkg\fR(5)
+\fBpkgdepend\fR(1), \fBpkgrepo\fR(1), \fBpkg.depotd\fR(8), \fBpkg\fR(7)
 .sp
 .LP
 \fI『Packaging and Delivering Software With the Image Packaging System 』\fR
@@ -398,4 +398,4 @@ _
 公開プロトコルの制限事項により、サイズが 128MB を超えるパッケージファイルを個別に公開する場合には、ファイルシステムベースの公開を使用する必要があります。ファイルシステムベースの公開は、リポジトリのアクセス制御が必要な場合にも推奨されます。
 .sp
 .LP
-ファイルシステムベースの公開を使用する場合、公開が完了して Web インタフェースまたは検索応答で変更が反映されたあとに、公開先リポジトリを提供している \fBpkg.depotd\fR プロセスを再開する必要があります。詳細は、\fBpkg.depotd\fR(1M) を参照してください。
+ファイルシステムベースの公開を使用する場合、公開が完了して Web インタフェースまたは検索応答で変更が反映されたあとに、公開先リポジトリを提供している \fBpkg.depotd\fR プロセスを再開する必要があります。詳細は、\fBpkg.depotd\fR(8) を参照してください。

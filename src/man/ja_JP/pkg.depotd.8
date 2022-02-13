@@ -33,10 +33,10 @@ pkg.depotd \- Image Packaging System の集積サーバー
 .SH SMF プロパティー
 .sp
 .LP
-\fBpkg.depotd\fR サーバーは通常、そのサービスと関連付けられた SMF プロパティーを通して構成されます。\fBsvc:/application/pkg/server\fR サービスは、\fBpkg.depot\fR サーバープロセスを実行するか、\fBsvc:/application/pkg/depot\fR サービスの構成に貢献します。\fBpkg.depot-config\fR(1M) マニュアルページおよび後述の \fBpkg/standalone\fR プロパティーを参照してください。
+\fBpkg.depotd\fR サーバーは通常、そのサービスと関連付けられた SMF プロパティーを通して構成されます。\fBsvc:/application/pkg/server\fR サービスは、\fBpkg.depot\fR サーバープロセスを実行するか、\fBsvc:/application/pkg/depot\fR サービスの構成に貢献します。\fBpkg.depot-config\fR(8) マニュアルページおよび後述の \fBpkg/standalone\fR プロパティーを参照してください。
 .sp
 .LP
-SMF プロパティーについては、\fBsmf\fR(5) マニュアルページを参照してください。次のようなプロパティーがあります。
+SMF プロパティーについては、\fBsmf\fR(7) マニュアルページを参照してください。次のようなプロパティーがあります。
 .sp
 .ne 2
 .mk
@@ -122,7 +122,7 @@ SMF プロパティーについては、\fBsmf\fR(5) マニュアルページを
 .ad
 .sp .6
 .RS 4n
-(\fBastring\fR) 集積プロセスによってログに記録される、アクセスに関連した任意の情報の出力先。指定可能な値は \fBstderr\fR、\fBstdout\fR、\fBnone\fR、または絶対パス名です。\fBstdout\fR が \fBtty\fR の場合、デフォルト値は \fBstdout\fR です。\fBstdout\fR が \fBtty\fR でない場合、デフォルト値は \fBnone\fR です。\fBpkg\fR をサービスとして実行する場合、\fBlog_access\fR のデフォルト値は \fBnone\fR で、出力は \fB/var/svc/log/application-pkg-server:*\fR に書き込まれます。大きいログファイルの管理例については、\fBlogadm\fR(1M) マニュアルページを参照してください。
+(\fBastring\fR) 集積プロセスによってログに記録される、アクセスに関連した任意の情報の出力先。指定可能な値は \fBstderr\fR、\fBstdout\fR、\fBnone\fR、または絶対パス名です。\fBstdout\fR が \fBtty\fR の場合、デフォルト値は \fBstdout\fR です。\fBstdout\fR が \fBtty\fR でない場合、デフォルト値は \fBnone\fR です。\fBpkg\fR をサービスとして実行する場合、\fBlog_access\fR のデフォルト値は \fBnone\fR で、出力は \fB/var/svc/log/application-pkg-server:*\fR に書き込まれます。大きいログファイルの管理例については、\fBlogadm\fR(8) マニュアルページを参照してください。
 .RE
 
 .sp
@@ -133,7 +133,7 @@ SMF プロパティーについては、\fBsmf\fR(5) マニュアルページを
 .ad
 .sp .6
 .RS 4n
-(\fBastring\fR) 集積プロセスによってログに記録される、任意のエラーやその他の情報の出力先。指定可能な値は \fBstderr\fR、\fBstdout\fR、\fBnone\fR、または絶対パス名です。デフォルト値は \fBstderr\fR です。大きいログファイルの管理例については、\fBlogadm\fR(1M) マニュアルページを参照してください。
+(\fBastring\fR) 集積プロセスによってログに記録される、任意のエラーやその他の情報の出力先。指定可能な値は \fBstderr\fR、\fBstdout\fR、\fBnone\fR、または絶対パス名です。デフォルト値は \fBstderr\fR です。大きいログファイルの管理例については、\fBlogadm\fR(8) マニュアルページを参照してください。
 .RE
 
 .sp
@@ -276,7 +276,7 @@ FMRI に関連したサービスインスタンスから、プロパティー \f
 .ad
 .sp .6
 .RS 4n
-(\fBboolean\fR) 最小の Apache 構成で、単一の Apache インスタンスから複数のリポジトリを簡単に提供するには、このプロパティーを \fBfalse\fR に設定し、この \fBpkg/server\fR インスタンスの \fBpkg/readonly\fR プロパティーを \fBtrue\fR に設定します。\fBpkg/standalone\fR のデフォルト値は \fBfalse\fR で、\fBpkg/readonly\fR のデフォルト値は \fBtrue\fR です。詳細は、\fBpkg.depot-config\fR(1M) のマニュアルページを参照してください。
+(\fBboolean\fR) 最小の Apache 構成で、単一の Apache インスタンスから複数のリポジトリを簡単に提供するには、このプロパティーを \fBfalse\fR に設定し、この \fBpkg/server\fR インスタンスの \fBpkg/readonly\fR プロパティーを \fBtrue\fR に設定します。\fBpkg/standalone\fR のデフォルト値は \fBfalse\fR で、\fBpkg/readonly\fR のデフォルト値は \fBtrue\fR です。詳細は、\fBpkg.depot-config\fR(8) のマニュアルページを参照してください。
 .RE
 
 .sp
@@ -372,7 +372,7 @@ FMRI に関連したサービスインスタンスから、プロパティー \f
 
 .sp
 .LP
-パッケージ集積庫は、\fBpkg\fR(5) からのローカルクライアントイメージのミラーサーバーとして機能することもできます。これにより、LAN 上で 1 つのサブネットを共有する複数のクライアントが、そのファイルキャッシュをミラー化できます。クライアント間で互いにファイルをダウンロードできるため、パッケージ集積サーバーの負荷が軽減されます。この機能は、SMF によって構成される代替集積サービスとして利用可能です。この機能はサービス検出のために mDNS および \fBdns-sd\fR を使用します。
+パッケージ集積庫は、\fBpkg\fR(7) からのローカルクライアントイメージのミラーサーバーとして機能することもできます。これにより、LAN 上で 1 つのサブネットを共有する複数のクライアントが、そのファイルキャッシュをミラー化できます。クライアント間で互いにファイルをダウンロードできるため、パッケージ集積サーバーの負荷が軽減されます。この機能は、SMF によって構成される代替集積サービスとして利用可能です。この機能はサービス検出のために mDNS および \fBdns-sd\fR を使用します。
 .sp
 .LP
 mDNS ミラーは通常、そのサービスと関連付けられた SMF プロパティーを通して構成されます。次のようなプロパティーがあります。
@@ -782,7 +782,7 @@ feed_description = example.com's software
 .SH 属性
 .sp
 .LP
-次の属性については、\fBattributes\fR(5) を参照してください。
+次の属性については、\fBattributes\fR(7) を参照してください。
 .sp
 
 .sp
@@ -801,7 +801,7 @@ _
 .SH 関連項目
 .sp
 .LP
-\fBpkg.depot-config\fR(1M), \fBdns-sd\fR(1M), \fBmdnsd\fR(1M), \fBpkg\fR(1), \fBpkgrepo\fR(1), \fBpkgsend\fR(1), \fBsyslogd\fR(1M), \fBsmf\fR(5)
+\fBpkg.depot-config\fR(8), \fBdns-sd\fR(8), \fBmdnsd\fR(8), \fBpkg\fR(1), \fBpkgrepo\fR(1), \fBpkgsend\fR(1), \fBsyslogd\fR(8), \fBsmf\fR(7)
 .sp
 .LP
 \fI『Oracle Solaris 11.2 パッケージリポジトリのコピーおよび作成に関するドキュメント』\fR
@@ -820,7 +820,7 @@ mDNS ミラーサービスは、サービス識別子 \fBsvc:/application/pkg/dy
 集積庫への読み取りアクセスを制御するために、\fBpkg\fR がネイティブでサポートするクライアントベースの SSL 証明書アクセスなどの認証方式と組み合わせて HTTP 逆プロキシを使用できます。
 .sp
 .LP
-最小の Apache 構成で、単一の Apache インスタンスから複数のリポジトリを簡単に提供するには、特定の \fBpkg/server\fR インスタンスの \fBpkg/standalone\fR プロパティーを \fBfalse\fR に設定し、そのインスタンスの \fBpkg/readonly\fR プロパティーを \fBtrue\fR に設定します。詳細は、\fBpkg.depot-config\fR(1M) のマニュアルページを参照してください。
+最小の Apache 構成で、単一の Apache インスタンスから複数のリポジトリを簡単に提供するには、特定の \fBpkg/server\fR インスタンスの \fBpkg/standalone\fR プロパティーを \fBfalse\fR に設定し、そのインスタンスの \fBpkg/readonly\fR プロパティーを \fBtrue\fR に設定します。詳細は、\fBpkg.depot-config\fR(8) のマニュアルページを参照してください。
 .sp
 .LP
 ファイルシステムベースの操作を使用して構成またはパッケージデータを変更した場合、操作および出力に変更内容を反映できるように、集積サーバープロセスを再起動する必要があります。集積サーバープロセスを再起動するには、次のいずれかの方法を使用します。

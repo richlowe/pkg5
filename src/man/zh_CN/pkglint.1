@@ -28,7 +28,7 @@ pkglint \- 映像包管理系统软件包 lint
 可以在命令行上将用于 lint 的清单作为本地文件的空格分隔列表进行传递，也可以从系统信息库检索清单。
 .sp
 .LP
-从系统信息库检索清单时，首次运行时 \fBpkglint\fR 将在指定的高速缓存目录中创建并填充 \fBpkg\fR(5) 用户映像。如果提供了 \fB-r\fR 选项，则为引用系统信息库创建名为 \fI cache_dir\fR\fB/ref_image\fR 的用户映像。如果提供了 \fB-l\fR 选项，则为 lint 系统信息库创建名为 \fI cache_dir\fR\fB/lint_image\fR 的用户映像。不会在这些映像中安装任何内容。\fBpkglint\fR 只使用这些映像从系统信息库中检索清单。
+从系统信息库检索清单时，首次运行时 \fBpkglint\fR 将在指定的高速缓存目录中创建并填充 \fBpkg\fR(7) 用户映像。如果提供了 \fB-r\fR 选项，则为引用系统信息库创建名为 \fI cache_dir\fR\fB/ref_image\fR 的用户映像。如果提供了 \fB-l\fR 选项，则为 lint 系统信息库创建名为 \fI cache_dir\fR\fB/lint_image\fR 的用户映像。不会在这些映像中安装任何内容。\fBpkglint\fR 只使用这些映像从系统信息库中检索清单。
 .sp
 .LP
 \fBpkglint\fR 的后续调用可以重新使用高速缓存目录，并可以省略任何 \fB-r\fR 或 \fB-l\fR 参数。
@@ -370,7 +370,7 @@ pkg.lint.opensolaris.OpenSolarisManifestChecker
 .SH 属性
 .sp
 .LP
-有关下列属性的说明，请参见 \fBattributes\fR(5)：
+有关下列属性的说明，请参见 \fBattributes\fR(7)：
 .sp
 
 .sp
@@ -389,7 +389,7 @@ _
 .SH 另请参见
 .sp
 .LP
-\fBpkg\fR(1)、\fBpkg.depotd\fR(1M)、\fBpkgsend\fR(1)、\fBpkg\fR(5)
+\fBpkg\fR(1)、\fBpkg.depotd\fR(8)、\fBpkgsend\fR(1)、\fBpkg\fR(7)
 .sp
 .LP
 \fBhttps://github.com/OpenIndiana/pkg5/\fR

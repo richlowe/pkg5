@@ -29,7 +29,7 @@ pkgrecv \- 映像包管理系统内容检索实用程序
 .SH 描述
 .sp
 .LP
-\fBpkgrecv\fR 从 \fB-s\fR 选项指定的 \fBpkg\fR(5) 系统信息库或软件包归档文件检索每个匹配 \fIfmri\fR 或 \fIpattern\fR 的软件包的所有版本，并且可以将检索到的软件包重新发布到 \fB-d\fR 选项指定的软件包系统信息库或软件包归档文件。缺省情况下，会以 \fBpkg\fR、\fBpkg.depotd\fR 以及软件包发布工具可使用的软件包系统信息库格式检索软件包。
+\fBpkgrecv\fR 从 \fB-s\fR 选项指定的 \fBpkg\fR(7) 系统信息库或软件包归档文件检索每个匹配 \fIfmri\fR 或 \fIpattern\fR 的软件包的所有版本，并且可以将检索到的软件包重新发布到 \fB-d\fR 选项指定的软件包系统信息库或软件包归档文件。缺省情况下，会以 \fBpkg\fR、\fBpkg.depotd\fR 以及软件包发布工具可使用的软件包系统信息库格式检索软件包。
 .sp
 .LP
 不重新发布未更改的软件包。因此，更新现有系统信息库的时间取决于新的和已更改软件包的数量。
@@ -71,7 +71,7 @@ pkgrecv \- 映像包管理系统内容检索实用程序
 .ad
 .sp .6
 .RS 4n
-将检索的软件包数据存储在 \fB-d\fR 选项指定的位置中的 \fBpkg\fR(5) 归档文件中。\fB-d\fR 指定的文件不能已经存在。\fB-a\fR 选项仅可以与基于文件系统的目标一起使用。尽管不要求，但还是强烈建议使用文件扩展名 \fB\&.p5p\fR（例如：\fB archive.p5p\fR）。\fB-a\fR 选项不能与 \fB--raw\fR 选项一起使用。
+将检索的软件包数据存储在 \fB-d\fR 选项指定的位置中的 \fBpkg\fR(7) 归档文件中。\fB-d\fR 指定的文件不能已经存在。\fB-a\fR 选项仅可以与基于文件系统的目标一起使用。尽管不要求，但还是强烈建议使用文件扩展名 \fB\&.p5p\fR（例如：\fB archive.p5p\fR）。\fB-a\fR 选项不能与 \fB--raw\fR 选项一起使用。
 .RE
 
 .sp
@@ -217,7 +217,7 @@ pkg://solaris/package/pkg@0.5.11,5.11-0.175.1.0.0.24.0:20120904T180335Z
 .ad
 .sp .6
 .RS 4n
-指定要从中接收软件包数据的 \fBpkg\fR(5) 系统信息库或软件包归档文件的文件系统路径或 URI。如果未指定 \fB-s\fR，则使用值 \fBPKG_SRC\fR。请参见下面的“环境变量”。
+指定要从中接收软件包数据的 \fBpkg\fR(7) 系统信息库或软件包归档文件的文件系统路径或 URI。如果未指定 \fB-s\fR，则使用值 \fBPKG_SRC\fR。请参见下面的“环境变量”。
 .RE
 
 .sp
@@ -501,7 +501,7 @@ $ \fBpkgrecv -s /my/archive.p5p -d /export/repo '*'\fR
 .ad
 .RS 12n
 .rt  
-URI 或文件系统路径代表要从中检索软件包的 \fB pkg\fR(5) 系统信息库或软件包归档文件的位置。
+URI 或文件系统路径代表要从中检索软件包的 \fBpkg\fR(7) 系统信息库或软件包归档文件的位置。
 .RE
 
 .sp
@@ -577,7 +577,7 @@ URI 或文件系统路径代表要从中检索软件包的 \fB pkg\fR(5) 系统�
 .SH 属性
 .sp
 .LP
-有关下列属性的说明，请参见 \fBattributes\fR(5)：
+有关下列属性的说明，请参见 \fBattributes\fR(7)：
 .sp
 
 .sp
@@ -596,7 +596,7 @@ _
 .SH 另请参见
 .sp
 .LP
-\fBpkgrepo\fR(1)、\fBpkgsend\fR(1)、\fBpkg\fR(5)
+\fBpkgrepo\fR(1)、\fBpkgsend\fR(1)、\fBpkg\fR(7)
 .sp
 .LP
 \fI《Copying and Creating Package Repositories in Oracle Solaris 11.2》\fR
@@ -606,4 +606,4 @@ _
 .SH 附注
 .sp
 .LP
-当使用基于文件系统的目标系统信息库时，在完成软件包传输后必须重新启动提供该系统信息库服务的任何 \fBpkg.depotd\fR 进程，以便在其 Web 界面或搜索响应中反映更改。有关更多信息，请参见 \fBpkg.depotd\fR(1M)。
+当使用基于文件系统的目标系统信息库时，在完成软件包传输后必须重新启动提供该系统信息库服务的任何 \fBpkg.depotd\fR 进程，以便在其 Web 界面或搜索响应中反映更改。有关更多信息，请参见 \fBpkg.depotd\fR(8)。

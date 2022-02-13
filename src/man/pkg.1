@@ -346,7 +346,7 @@ A publisher name identifies a person, group of persons, or an organization as th
 A repository is a location where clients can publish and retrieve package content (files contained within the package such as programs and documents) and metadata (information about the package such as its name and description). As an example, a publisher named \fBexample.org\fR might have their repository located at the URI \fBhttp://example.org/repository\fR.
 .sp
 .LP
-\fBpkg\fR can also uninstall packages, refresh publisher metadata (such as the list of available packages), validate package installation in an image, and query the image for various tokens. These queries can also be made of \fBpkg\fR(5) repositories.
+\fBpkg\fR can also uninstall packages, refresh publisher metadata (such as the list of available packages), validate package installation in an image, and query the image for various tokens. These queries can also be made of \fBpkg\fR(7) repositories.
 .sp
 .LP
 Images can be of three types: full images, capable of providing a complete system; partial images, which are linked to a full image (parent image), but do not provide a complete system on their own; and user images.
@@ -440,13 +440,13 @@ Install and update the specified packages to the newest version that match \fIpk
 .sp
 Versions older or newer than what is already installed can be specified to perform in-place downgrades or upgrades of specific packages. Updating specific packages across package rename or obsolete boundaries is not supported.
 .sp
-Any preserved configuration files that are part of packages to be downgraded and that have been changed since the original version was installed are renamed using the extension \fB\&.update\fR. For more information about how the package system determines which files to preserve, and how these files are preserved during package upgrades, see "File Actions" in the \fBpkg\fR(5) man page.
+Any preserved configuration files that are part of packages to be downgraded and that have been changed since the original version was installed are renamed using the extension \fB\&.update\fR. For more information about how the package system determines which files to preserve, and how these files are preserved during package upgrades, see "File Actions" in the \fBpkg\fR(7) man page.
 .sp
 Packages are selected based on publisher search order and stickiness. See the \fBpkg publisher\fR and \fBpkg set-publisher\fR commands for information about search order and stickiness. If the \fIpkg_fmri_pattern\fR does not specify the publisher, the first publisher that provides a matching package is used as the installation source. If that publisher does not provide a version of the package that can be installed in this image, then the installation operation fails. Use the \fBpkg list -a\fR command to see which publishers provide a version of the package that can be installed in this image.
 .sp
 If more than one \fIpkg_fmri_pattern\fR is specified, and if any of the specified packages cannot be installed in this image, then none of the specified packages will be installed.
 .sp
-Some configuration files might be renamed or replaced during the installation process. For more information about how the package system determines which files to preserve, and how they are preserved during package operations, see "File Actions" in the \fBpkg\fR(5) man page.
+Some configuration files might be renamed or replaced during the installation process. For more information about how the package system determines which files to preserve, and how they are preserved during package operations, see "File Actions" in the \fBpkg\fR(7) man page.
 .sp
 If a package is on the avoid list, installing it removes it from that list.
 .sp
@@ -602,7 +602,7 @@ Do not attempt to contact the repositories for the image\&'s publishers to retri
 .ad
 .sp .6
 .RS 4n
-If a boot environment is created, do not set it as the active boot environment on the next boot. See the \fBbeadm\fR(1M) man page for more information.
+If a boot environment is created, do not set it as the active boot environment on the next boot. See the \fBbeadm\fR(8) man page for more information.
 .RE
 
 .sp
@@ -635,7 +635,7 @@ Always create a backup boot environment if a new boot environment will not be cr
 .ad
 .sp .6
 .RS 4n
-Name the created backup boot environment using the given argument. Use of \fB--backup-be-name\fR implies \fB--require-backup-be\fR. See also the \fBbeadm\fR(1M) man page.
+Name the created backup boot environment using the given argument. Use of \fB--backup-be-name\fR implies \fB--require-backup-be\fR. See also the \fBbeadm\fR(8) man page.
 .RE
 
 .sp
@@ -668,7 +668,7 @@ Always create a new boot environment. Without this option, a boot environment is
 .ad
 .sp .6
 .RS 4n
-Rename the newly created boot environment to be the argument given. Use of \fB--be-name\fR implies \fB--require-new-be\fR. See also the \fBbeadm\fR(1M) man page.
+Rename the newly created boot environment to be the argument given. Use of \fB--be-name\fR implies \fB--require-new-be\fR. See also the \fBbeadm\fR(8) man page.
 .RE
 
 .sp
@@ -720,7 +720,7 @@ Packages are selected based on publisher search order and stickiness. See the \f
 .sp
 If more than one \fIpkg_fmri_pattern\fR is specified, and if any of the specified packages cannot be installed in this image, then none of the specified packages will be installed.
 .sp
-Some configuration files might be renamed or replaced during the installation process. For more information about how the package system determines which files to preserve, and how they are preserved during package operations, see "File Actions" in the \fBpkg\fR(5) man page.
+Some configuration files might be renamed or replaced during the installation process. For more information about how the package system determines which files to preserve, and how they are preserved during package operations, see "File Actions" in the \fBpkg\fR(7) man page.
 .sp
 If a package is on the avoid list, installing it removes it from that list.
 .sp
@@ -739,7 +739,7 @@ Remove installed packages that match \fIpkg_fmri_pattern\fR.
 .sp
 If a package is the subject of a group dependency, uninstalling it places it on the avoid list. See the \fBavoid\fR subcommand below.
 .sp
-In the command output, note any messages that say a new boot environment has been created. If a new boot environment has been created and activated, that is the environment that is booted by default on next reboot. See the \fBbeadm\fR(1M) man page for information about managing boot environments.
+In the command output, note any messages that say a new boot environment has been created. If a new boot environment has been created and activated, that is the environment that is booted by default on next reboot. See the \fBbeadm\fR(8) man page for information about managing boot environments.
 .sp
 .ne 2
 .mk
@@ -764,7 +764,7 @@ For all other options, see the \fBinstall\fR command above.
 .RS 4n
 Update all packages installed in the current image to the newest version allowed by the constraints imposed on the system by installed packages and publisher configuration.
 .sp
-In the command output, note any messages that say a new boot environment has been created. If a new boot environment has been created and activated, that is the environment that is booted by default on next reboot if you do not specify the \fB--no-be-activate\fR option. See the \fBbeadm\fR(1M) man page for information about managing boot environments.
+In the command output, note any messages that say a new boot environment has been created. If a new boot environment has been created and activated, that is the environment that is booted by default on next reboot if you do not specify the \fB--no-be-activate\fR option. See the \fBbeadm\fR(8) man page for information about managing boot environments.
 .sp
 .ne 2
 .mk
@@ -779,7 +779,7 @@ To explicitly request the latest version of a package, use \fBlatest\fR for the 
 .sp
 Versions older or newer than what is already installed can be specified to perform in-place downgrades or upgrades of specific packages. Updating specific packages across package rename or obsolete boundaries is not supported.
 .sp
-Any preserved configuration files that are part of packages to be downgraded and that have been changed since the original version was installed are renamed using the extension \fB\&.update\fR. For more information about how the package system determines which files to preserve, and how these files are preserved during package upgrades, see "File Actions" in the \fBpkg\fR(5) man page.
+Any preserved configuration files that are part of packages to be downgraded and that have been changed since the original version was installed are renamed using the extension \fB\&.update\fR. For more information about how the package system determines which files to preserve, and how these files are preserved during package upgrades, see "File Actions" in the \fBpkg\fR(7) man page.
 .sp
 If more than one \fIpkg_fmri_pattern\fR is specified, and if any of the specified packages cannot be updated in this image, then none of the specified packages will be updated.
 .RE
@@ -819,7 +819,7 @@ For all other options, see the \fBinstall\fR command above.
 .RS 4n
 Install a hot-fix bundle from the provided location.
 .sp
-In the command output, note any messages that say a new boot environment has been created. If a new boot environment has been created and activated, that is the environment that is booted by default on next reboot if you do not specify the \fB--no-be-activate\fR option. See the \fBbeadm\fR(1M) man page for information about managing boot environments.
+In the command output, note any messages that say a new boot environment has been created. If a new boot environment has been created and activated, that is the environment that is booted by default on next reboot if you do not specify the \fB--no-be-activate\fR option. See the \fBbeadm\fR(8) man page for information about managing boot environments.
 
 .sp
 .ne 2
@@ -866,7 +866,7 @@ x11/wm/fvwm (fvwm.org) 2.6.5                  i--
 .fi
 .in -2
 
-The first column contains the name of the package. If the publisher from which the package is installed (or available, if not installed) is not the first in the publisher search order, then the publisher name is listed in parentheses after the package name. The second column contains the release and branch versions of the package. See the \fBpkg\fR(5) man page for information about release and branch versions and about variants.
+The first column contains the name of the package. If the publisher from which the package is installed (or available, if not installed) is not the first in the publisher search order, then the publisher name is listed in parentheses after the package name. The second column contains the release and branch versions of the package. See the \fBpkg\fR(7) man page for information about release and branch versions and about variants.
 .sp
 .LP
 The last column contains a set of flags that show the status of the package:
@@ -1098,13 +1098,13 @@ Display the license texts for the packages. This option can be combined with \fB
 .RS 4n
 Display the contents (action attributes) of all packages installed in the image. With no options, display the value of the \fBpath\fR attribute for actions installed in the current image, sorted alphabetically by attribute value.
 If the \fB-o\fR option is not specified, the key attributes, as described in
-\fBpkg\fR(5), of the related action name will be displayed instead.
+\fBpkg\fR(7), of the related action name will be displayed instead.
 In addition, 'depend' actions will also include the 'type' attribute, and 'set' actions will include the 'value' attribute.
 .sp
 When more than one action name is specified, the default attributes are
 the set of all attributes, as described above, of all the specified actions.
 For information about actions and their attributes, see 'Actions' in the
-\fBpkg\fR(5) man page. See also the list of pseudo attribute names below.
+\fBpkg\fR(7) man page. See also the list of pseudo attribute names below.
 .sp
 .ne 2
 .mk
@@ -1201,7 +1201,7 @@ Sort actions by the specified action attribute. If not provided, the default is 
 .ad
 .sp .6
 .RS 4n
-Only list the specified actions. The \fB-t\fR option can be specified multiple times, or multiple actions can be specified as the argument to one \fB-t\fR option by separating the action names with commas. The value of \fIaction_name\fR is one of the actions listed in "Actions" in the \fBpkg\fR(5) man page, such as \fBfile\fR, \fBdirectory\fR, \fBdriver\fR, \fBdepend\fR, \fBset\fR.
+Only list the specified actions. The \fB-t\fR option can be specified multiple times, or multiple actions can be specified as the argument to one \fB-t\fR option by separating the action names with commas. The value of \fIaction_name\fR is one of the actions listed in "Actions" in the \fBpkg\fR(7) man page, such as \fBfile\fR, \fBdirectory\fR, \fBdriver\fR, \fBdepend\fR, \fBset\fR.
 .RE
 
 Several special pseudo attribute names are available for convenience:
@@ -1429,7 +1429,7 @@ Both \fB-l\fR and \fB-r\fR (or \fB-s\fR) can be specified together, in which cas
 .ad
 .sp .6
 .RS 4n
-Search the \fBpkg\fR(5) repository located at the given URI. This can be specified multiple times. Package archives are not supported.
+Search the \fBpkg\fR(7) repository located at the given URI. This can be specified multiple times. Package archives are not supported.
 .RE
 
 .sp
@@ -1448,7 +1448,7 @@ The \fB?\fR and \fB*\fR characters can be used as \fBglob\fR(3C)\(hystyle wildca
 .sp
 In addition to simple token matching and wildcard search, a more complicated query language is supported. Phrases can be searched for by using single or double quotation marks (\fB\&'\fR or \fB"\fR). Be sure to take your shell into account so that \fBpkg\fR actually sees the \fB\&'\fR or \fB"\fR.
 .sp
-Which tokens are indexed is action-dependent, but can include content hashes and path names. For information about actions and their attributes, see "Actions" in the \fBpkg\fR(5) man page. See also the list of pseudo attribute names in \fBpkg contents\fR and \fB-o\fR above.
+Which tokens are indexed is action-dependent, but can include content hashes and path names. For information about actions and their attributes, see "Actions" in the \fBpkg\fR(7) man page. See also the list of pseudo attribute names in \fBpkg contents\fR and \fB-o\fR above.
 .sp
 Structured queries are supported with the following syntax:
 .sp
@@ -1458,7 +1458,7 @@ Structured queries are supported with the following syntax:
 .fi
 .in -2
 
-The value of \fIaction_name\fR is one of the actions listed in "Actions" in the \fBpkg\fR(5) man page. The \fIindex\fR is an attribute of the action. The value of \fIindex\fR must match \fItoken\fR.
+The value of \fIaction_name\fR is one of the actions listed in "Actions" in the \fBpkg\fR(7) man page. The \fIindex\fR is an attribute of the action. The value of \fIindex\fR must match \fItoken\fR.
 .sp
 Not all action attributes are searchable. For example, \fBmode\fR is an attribute of the \fBfile\fR action, but \fBmode\fR is not a valid value for \fIindex\fR.
 .sp
@@ -1707,7 +1707,7 @@ For all other options, see the \fBinstall\fR command above.
 .ad
 .sp .6
 .RS 4n
-Revert files delivered by \fBpkg\fR(5) packages to their as-delivered condition. File ownership and protections are also restored.
+Revert files delivered by \fBpkg\fR(7) packages to their as-delivered condition. File ownership and protections are also restored.
 .LP
 Caution - 
 .sp
@@ -1722,7 +1722,7 @@ Reverting some editable files to their default values can make the system unboot
 .ad
 .sp .6
 .RS 4n
-Revert all files tagged with \fItag-name\fR, and remove any unpackaged files or directories that are under directories with this tag and that match \fIpattern\fR. See the description of the \fBrevert-tag\fR attribute in "File Actions" and "Directory Actions" in the \fBpkg\fR(5) man page for more information about \fBtag-name\fR and \fIpattern\fR.
+Revert all files tagged with \fItag-name\fR, and remove any unpackaged files or directories that are under directories with this tag and that match \fIpattern\fR. See the description of the \fBrevert-tag\fR attribute in "File Actions" and "Directory Actions" in the \fBpkg\fR(7) man page for more information about \fBtag-name\fR and \fIpattern\fR.
 .RE
 
 .sp
@@ -1872,7 +1872,7 @@ For all other options, see the \fBinstall\fR command above.
 .ad
 .sp .6
 .RS 4n
-Display the current values of all variants set in this image. See "Facets and Variants" in the \fBpkg\fR(5) man page for more information about variants.
+Display the current values of all variants set in this image. See "Facets and Variants" in the \fBpkg\fR(7) man page for more information about variants.
 .sp
 .ne 2
 .mk
@@ -1951,7 +1951,7 @@ Display the possible variant values that can be set for installed packages. The 
 .RS 4n
 Change the values of the specified variants set in the current image.
 .sp
-Changing the value of a variant can cause package content to be removed, updated, or installed. Changing a variant value can also cause entire packages to be installed, updated, or removed to satisfy the new image configuration. See "Facets and Variants" in the \fBpkg\fR(5) man page for more information about variants.
+Changing the value of a variant can cause package content to be removed, updated, or installed. Changing a variant value can also cause entire packages to be installed, updated, or removed to satisfy the new image configuration. See "Facets and Variants" in the \fBpkg\fR(7) man page for more information about variants.
 .sp
 For descriptions of options, see the \fBinstall\fR command above.
 .RE
@@ -1964,7 +1964,7 @@ For descriptions of options, see the \fBinstall\fR command above.
 .ad
 .sp .6
 .RS 4n
-Display the current values and source of all facets that either have been set locally in this image by using the \fBpkg change-facet\fR command or have been inherited from a parent image (such as a non-global zone inheriting the facet setting from the global zone). See "Facets and Variants" in the \fBpkg\fR(5) man page for more information about facets.
+Display the current values and source of all facets that either have been set locally in this image by using the \fBpkg change-facet\fR command or have been inherited from a parent image (such as a non-global zone inheriting the facet setting from the global zone). See "Facets and Variants" in the \fBpkg\fR(7) man page for more information about facets.
 .sp
 .ne 2
 .mk
@@ -2043,9 +2043,9 @@ Include masked facets in the output. Display a column that indicates which, if a
 .RS 4n
 Change the values of the specified facets set in the current image. The changes also appear in any images that inherit these facets, such as non-global zones.
 .sp
-Facets can be set to \fBTrue\fR or \fBFalse\fR. Setting a facet to \fBNone\fR applies the default value of \fBTrue\fR to that facet; thus, any actions subject to the facet will be installed. See "Actions" in the \fBpkg\fR(5) man page for information about actions.
+Facets can be set to \fBTrue\fR or \fBFalse\fR. Setting a facet to \fBNone\fR applies the default value of \fBTrue\fR to that facet; thus, any actions subject to the facet will be installed. See "Actions" in the \fBpkg\fR(7) man page for information about actions.
 .sp
-Changing the value of a facet can cause package content to be removed, updated, or installed. Changing a facet value can also cause entire packages to be installed, updated, or removed to satisfy the new image configuration. See "Facets and Variants" in the \fBpkg\fR(5) man page for more information about facets.
+Changing the value of a facet can cause package content to be removed, updated, or installed. Changing a facet value can also cause entire packages to be installed, updated, or removed to satisfy the new image configuration. See "Facets and Variants" in the \fBpkg\fR(7) man page for more information about facets.
 .sp
 For descriptions of options, see the \fBinstall\fR command above.
 .RE
@@ -3019,7 +3019,7 @@ Rebuild the index used by \fBpkg search\fR. This is a recovery operation not int
 .ad
 .sp .6
 .RS 4n
-Update the format of the image to the current version. Once this operation has completed, the image can no longer be used with older versions of the \fBpkg\fR(5) system.
+Update the format of the image to the current version. Once this operation has completed, the image can no longer be used with older versions of the \fBpkg\fR(7) system.
 .RE
 
 .sp
@@ -3086,7 +3086,7 @@ Force the creation of an image over an existing image. This option should be use
 .ad
 .sp .6
 .RS 4n
-Set the specified facet to the indicated value. See "Facets and Variants" in the \fBpkg\fR(5) man page for more information about facets.
+Set the specified facet to the indicated value. See "Facets and Variants" in the \fBpkg\fR(7) man page for more information about facets.
 .RE
 
 .sp
@@ -3119,7 +3119,7 @@ Set the specified image property to the indicated value. See "Image Properties" 
 .ad
 .sp .6
 .RS 4n
-Set the specified variant to the indicated value. See "Facets and Variants" in the \fBpkg\fR(5) man page for more information about variants.
+Set the specified variant to the indicated value. See "Facets and Variants" in the \fBpkg\fR(7) man page for more information about variants.
 .RE
 
 .RE
@@ -3415,7 +3415,7 @@ Default value: \fB[]\fR (empty list)
 .ad
 .sp .6
 .RS 4n
-(boolean) This property tells the client to discover link-local content mirrors using mDNS and DNS-SD. If this property is set to \fBTrue\fR, the client attempts to download package content from mirrors it dynamically discovers. To run a mirror that advertises its content via mDNS, see the \fBpkg.depotd\fR(1M) man page.
+(boolean) This property tells the client to discover link-local content mirrors using mDNS and DNS-SD. If this property is set to \fBTrue\fR, the client attempts to download package content from mirrors it dynamically discovers. To run a mirror that advertises its content via mDNS, see the \fBpkg.depotd\fR(8) man page.
 .sp
 Default value: \fBFalse\fR
 .RE
@@ -3531,7 +3531,7 @@ Follow the same requirements as \fBrequire-signatures\fR but also require that t
 .ad
 .sp .6
 .RS 4n
-(boolean) This property indicates whether the image should use the system repository as a source for image and publisher configuration and as a proxy for communicating with the publishers provided. The default value is \fBFalse\fR. See the \fBpkg.sysrepo\fR(1M) man page for information about system repositories.
+(boolean) This property indicates whether the image should use the system repository as a source for image and publisher configuration and as a proxy for communicating with the publishers provided. The default value is \fBFalse\fR. See the \fBpkg.sysrepo\fR(8) man page for information about system repositories.
 .RE
 
 .SH PUBLISHER PROPERTIES
@@ -4448,7 +4448,7 @@ An unanticipated exception occurred.
 .SH FILES
 .sp
 .LP
-A \fBpkg\fR(5) image can be located arbitrarily within a larger file system. In the following file descriptions, the token \fB$IMAGE_ROOT\fR is used to distinguish relative paths. For a typical system installation, \fB$IMAGE_ROOT\fR is equivalent to \fB/\fR
+A \fBpkg\fR(7) image can be located arbitrarily within a larger file system. In the following file descriptions, the token \fB$IMAGE_ROOT\fR is used to distinguish relative paths. For a typical system installation, \fB$IMAGE_ROOT\fR is equivalent to \fB/\fR
 .sp
 .ne 2
 .mk
@@ -4502,7 +4502,7 @@ Other paths within the \fB$IMAGE_META\fR directory hierarchy are private and are
 .SH ATTRIBUTES
 .sp
 .LP
-See \fBattributes\fR(5) for descriptions of the following attributes:
+See \fBattributes\fR(7) for descriptions of the following attributes:
 .sp
 
 .sp
@@ -4521,7 +4521,7 @@ Interface StabilityUncommitted
 .SH SEE ALSO
 .sp
 .LP
-\fBpkgsend\fR(1), \fBbeadm\fR(1M), \fBpkg.depotd\fR(1M), \fBpkg.sysrepo\fR(1M), \fBglob\fR(3C), \fBpkg\fR(5)
+\fBpkgsend\fR(1), \fBbeadm\fR(8), \fBpkg.depotd\fR(8), \fBpkg.sysrepo\fR(8), \fBglob\fR(3C), \fBpkg\fR(7)
 .sp
 .LP
 \fIAdding and Updating Software in Oracle Solaris 11.2\fR

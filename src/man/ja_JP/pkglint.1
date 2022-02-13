@@ -28,7 +28,7 @@ pkglint \- Image Packaging System パッケージ lint
 lint のためのマニフェストは、コマンド行で、スペースで区切られたローカルファイルのリストとして渡すことができます。または、リポジトリからマニフェストを取得できます。
 .sp
 .LP
-リポジトリからマニフェストを取得する場合、\fBpkglint\fR は最初の実行で、指定されたキャッシュディレクトリ内に \fBpkg\fR(5) ユーザーイメージを作成して設定します。\fB-r\fR オプションが指定されている場合は、参照リポジトリのために \fIcache_dir\fR\fB/ref_image\fR という名前のユーザーイメージが作成されます。\fB-l\fR オプションが指定されている場合は、lint リポジトリのために \fIcache_dir\fR\fB/lint_image\fR という名前のユーザーイメージが作成されます。これらのイメージに内容はインストールされません。これらのイメージは、リポジトリからマニフェストを取得するために \fBpkglint\fR でのみ使用されます。
+リポジトリからマニフェストを取得する場合、\fBpkglint\fR は最初の実行で、指定されたキャッシュディレクトリ内に \fBpkg\fR(7) ユーザーイメージを作成して設定します。\fB-r\fR オプションが指定されている場合は、参照リポジトリのために \fIcache_dir\fR\fB/ref_image\fR という名前のユーザーイメージが作成されます。\fB-l\fR オプションが指定されている場合は、lint リポジトリのために \fIcache_dir\fR\fB/lint_image\fR という名前のユーザーイメージが作成されます。これらのイメージに内容はインストールされません。これらのイメージは、リポジトリからマニフェストを取得するために \fBpkglint\fR でのみ使用されます。
 .sp
 .LP
 \fBpkglint\fR の以降の呼び出しではキャッシュディレクトリを再利用できるため、\fB-r\fR または \fB-l\fR 引数はすべて省略できます。
@@ -370,7 +370,7 @@ pkg.lint.opensolaris.OpenSolarisManifestChecker
 .SH 属性
 .sp
 .LP
-次の属性については、\fBattributes\fR(5) を参照してください。
+次の属性については、\fBattributes\fR(7) を参照してください。
 .sp
 
 .sp
@@ -389,7 +389,7 @@ _
 .SH 関連項目
 .sp
 .LP
-\fBpkg\fR(1), \fBpkg.depotd\fR(1M), \fBpkgsend\fR(1), \fBpkg\fR(5)
+\fBpkg\fR(1), \fBpkg.depotd\fR(8), \fBpkgsend\fR(1), \fBpkg\fR(7)
 .sp
 .LP
 \fBhttps://github.com/OpenIndiana/pkg5/\fR

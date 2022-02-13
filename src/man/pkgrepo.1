@@ -116,7 +116,7 @@ pkgrepo \- Image Packaging System repository management utility
 .SH DESCRIPTION
 .sp
 .LP
-\fBpkgrepo\fR provides the ability to create and manage \fBpkg\fR(5) package repositories. Package repositories are a predefined set of directories and files that permit the storage and retrieval of package data by \fBpkg\fR and publication clients such as \fBpkgsend\fR or \fBpkgrecv\fR. In addition, when network-based access to a package repository is needed, \fBpkg.depotd\fR can provide clients access to the repository to store and/or retrieve package data.
+\fBpkgrepo\fR provides the ability to create and manage \fBpkg\fR(7) package repositories. Package repositories are a predefined set of directories and files that permit the storage and retrieval of package data by \fBpkg\fR and publication clients such as \fBpkgsend\fR or \fBpkgrecv\fR. In addition, when network-based access to a package repository is needed, \fBpkg.depotd\fR can provide clients access to the repository to store and/or retrieve package data.
 .SH OPTIONS
 .sp
 .LP
@@ -148,7 +148,7 @@ The following subcommands are supported:
 .ad
 .sp .6
 .RS 4n
-Create a \fBpkg\fR(5) repository at the specified location.
+Create a \fBpkg\fR(7) repository at the specified location.
 .sp
 This subcommand can be used only with file system based repositories.
 .sp
@@ -382,7 +382,7 @@ For descriptions of all other options, see the \fBpkgrepo get\fR command above.
 .RS 4n
 List the packages in the \fIrepo_uri_or_path\fR repository that match the specified \fIpkg_fmri_pattern\fR patterns. If no patterns are specified, all packages in the repository are listed. The \fIpkg_fmri_pattern\fR pattern can include the \fB?\fR and \fB*\fR characters as \fBglob\fR(3C)-style wildcards to match one or more packages.
 .sp
-In the default output, the first column contains the name of the publisher of the package. The second column contains the name of the package. The third column is a flag that shows the status of the package. A value of \fBo\fR in the status column indicates the package is obsolete. A value of \fBr\fR in the status column indicates the package has been renamed, which is a form of obsoletion. The fourth column contains the release and branch versions of the package. See \fBpkg\fR(5) for information about release and branch versions.
+In the default output, the first column contains the name of the publisher of the package. The second column contains the name of the package. The third column is a flag that shows the status of the package. A value of \fBo\fR in the status column indicates the package is obsolete. A value of \fBr\fR in the status column indicates the package has been renamed, which is a form of obsoletion. The fourth column contains the release and branch versions of the package. See \fBpkg\fR(7) for information about release and branch versions.
 .sp
 .ne 2
 .mk
@@ -425,7 +425,7 @@ Display all attributes of actions in the specified packages.
 .ad
 .sp .6
 .RS 4n
-Display only the specified actions in the specified packages. The \fB-t\fR option can be specified multiple times, or multiple actions can be specified as the argument to one \fB-t\fR option by separating the action names with commas. The value of \fIaction_name\fR is one of the actions listed in  "Actions" in the \fBpkg\fR(5) man page, such as \fBfile\fR, \fBdir\fR, \fBdriver\fR, \fBdepend\fR, or \fBset\fR.
+Display only the specified actions in the specified packages. The \fB-t\fR option can be specified multiple times, or multiple actions can be specified as the argument to one \fB-t\fR option by separating the action names with commas. The value of \fIaction_name\fR is one of the actions listed in  "Actions" in the \fBpkg\fR(7) man page, such as \fBfile\fR, \fBdir\fR, \fBdriver\fR, \fBdepend\fR, or \fBset\fR.
 .RE
 
 For descriptions of all other options, see the \fBpkgrepo get\fR command above.
@@ -1044,7 +1044,7 @@ Display a usage message.
 .ad
 .sp .6
 .RS 4n
-Display a unique string that identifies the version of the \fBpkg\fR(5) system. The values produced by the \fBversion\fR operation are not sortable and are not safe for comparison beyond equality.
+Display a unique string that identifies the version of the \fBpkg\fR(7) system. The values produced by the \fBversion\fR operation are not sortable and are not safe for comparison beyond equality.
 .RE
 
 .SH EXAMPLES
@@ -1265,7 +1265,7 @@ An unanticipated exception occurred.
 .SH ATTRIBUTES
 .sp
 .LP
-See \fBattributes\fR(5) for descriptions of the following attributes:
+See \fBattributes\fR(7) for descriptions of the following attributes:
 .sp
 
 .sp
@@ -1284,7 +1284,7 @@ Interface StabilityUncommitted
 .SH SEE ALSO
 .sp
 .LP
-\fBpkg\fR(1), \fBpkgrecv\fR(1), \fBpkgsend\fR(1), \fBpkg.depotd\fR(1M), \fBpkg\fR(5)
+\fBpkg\fR(1), \fBpkgrecv\fR(1), \fBpkgsend\fR(1), \fBpkg.depotd\fR(8), \fBpkg\fR(7)
 .sp
 .LP
 \fICopying and Creating Package Repositories in Oracle Solaris 11.2\fR

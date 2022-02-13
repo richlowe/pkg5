@@ -19,7 +19,7 @@ pkg.sysrepo \- 映像包管理系统的系统信息库配置
 系统信息库负责提供对通过集中代理在参考映像中配置的软件包系统信息库的访问权限。配置为使用系统信息库的任何客户机可立即看到对该参考映像所做的发布者配置更改。
 .sp
 .LP
-系统信息库主要用于全局区域，以允许非全局区域访问在全局区域中配置的系统信息库。SMF 服务 \fBsvc:/application/pkg/zones-proxyd\fR 和 \fB svc:/application/pkg/zones-proxy-client\fR 负责提供非全局区域和全局区域之间的传输。只有 \fBpkg\fR(5) 使用该传输。
+系统信息库主要用于全局区域，以允许非全局区域访问在全局区域中配置的系统信息库。SMF 服务 \fBsvc:/application/pkg/zones-proxyd\fR 和 \fB svc:/application/pkg/zones-proxy-client\fR 负责提供非全局区域和全局区域之间的传输。只有 \fBpkg\fR(7) 使用该传输。
 .sp
 .LP
 请注意，只有 \fBhttp\fR、\fBhttps\fR 和 \fBv4\fR 文件系统信息库以及 \fBp5p\fR 归档受支持。较旧的文件系统信息库格式不受支持。有关系统信息库版本的更多信息，请参见 \fBpkgrepo\fR(1)。
@@ -146,7 +146,7 @@ $ \fBsvcadm enable svc:/application/pkg/system-repository\fR
 .SH 属性
 .sp
 .LP
-有关下列属性的说明，请参见 \fBattributes\fR(5)：
+有关下列属性的说明，请参见 \fBattributes\fR(7)：
 .sp
 
 .sp
@@ -165,7 +165,7 @@ _
 .SH 另请参见
 .sp
 .LP
-\fBpkg\fR(1)、\fBpkg.depotd\fR(1M)、\fBpkg\fR(5)
+\fBpkg\fR(1)、\fBpkg.depotd\fR(8)、\fBpkg\fR(7)
 .sp
 .LP
 \fBhttps://github.com/OpenIndiana/pkg5/\fR

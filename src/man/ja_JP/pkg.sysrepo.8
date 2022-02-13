@@ -19,7 +19,7 @@ pkg.sysrepo \- Image Packaging System システムリポジトリ構成
 システムリポジトリは、参照イメージ内に構成されたパッケージリポジトリへのアクセスを、集中管理プロキシを通して提供する役割を果たします。その参照イメージに加えられたパブリッシャーの構成の変更は、そのシステムリポジトリを使用するように構成されたすべてのクライアントにただちに認識されます。
 .sp
 .LP
-システムリポジトリは、大域ゾーン内に構成されたリポジトリに非大域ゾーンからアクセスできるようにするために、主に大域ゾーンで使用されます。SMF サービス \fBsvc:/application/pkg/zones-proxyd\fR および \fBsvc:/application/pkg/zones-proxy-client\fR は、非大域ゾーンと大域ゾーンの間のトランスポートを提供する役割を果たします。このトランスポートは、\fBpkg\fR(5) でのみ使用されます。
+システムリポジトリは、大域ゾーン内に構成されたリポジトリに非大域ゾーンからアクセスできるようにするために、主に大域ゾーンで使用されます。SMF サービス \fBsvc:/application/pkg/zones-proxyd\fR および \fBsvc:/application/pkg/zones-proxy-client\fR は、非大域ゾーンと大域ゾーンの間のトランスポートを提供する役割を果たします。このトランスポートは、\fBpkg\fR(7) でのみ使用されます。
 .sp
 .LP
 \fBhttp\fR、\fBhttps\fR、および \fB v4\fR ファイルリポジトリと \fBp5p\fR アーカイブのみがサポートされます。古いファイルリポジトリ形式はサポートされません。リポジトリバージョンについての詳細は、\fBpkgrepo\fR(1) を参照してください。
@@ -146,7 +146,7 @@ $ \fBsvcadm enable svc:/application/pkg/system-repository\fR
 .SH 属性
 .sp
 .LP
-次の属性については、\fBattributes\fR(5) を参照してください。
+次の属性については、\fBattributes\fR(7) を参照してください。
 .sp
 
 .sp
@@ -165,7 +165,7 @@ _
 .SH 関連項目
 .sp
 .LP
-\fBpkg\fR(1), \fBpkg.depotd\fR(1M), \fBpkg\fR(5)
+\fBpkg\fR(1), \fBpkg.depotd\fR(8), \fBpkg\fR(7)
 .sp
 .LP
 \fBhttps://github.com/OpenIndiana/pkg5/\fR

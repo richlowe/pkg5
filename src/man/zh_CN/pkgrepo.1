@@ -105,7 +105,7 @@ pkgrepo \- 映像包管理系统的系统信息库管理实用程序
 .SH 描述
 .sp
 .LP
-通过 \fBpkgrepo\fR 可以创建和管理 \fB pkg\fR(5) 软件包系统信息库。软件包系统信息库是一组预定义的目录和文件，允许 \fBpkg\fR 和发布客户机（例如 \fBpkgsend \fR 或 \fBpkgrecv\fR）存储和检索软件包数据。此外，当需要对软件包系统信息库进行基于网络的访问时，\fBpkg.depotd\fR 可以提供对该系统信息库的客户机访问权限，以存储和/或检索软件包数据。
+通过 \fBpkgrepo\fR 可以创建和管理 \fBpkg\fR(7) 软件包系统信息库。软件包系统信息库是一组预定义的目录和文件，允许 \fBpkg\fR 和发布客户机（例如 \fBpkgsend \fR 或 \fBpkgrecv\fR）存储和检索软件包数据。此外，当需要对软件包系统信息库进行基于网络的访问时，\fBpkg.depotd\fR 可以提供对该系统信息库的客户机访问权限，以存储和/或检索软件包数据。
 .SH 选项
 .sp
 .LP
@@ -137,7 +137,7 @@ pkgrepo \- 映像包管理系统的系统信息库管理实用程序
 .ad
 .sp .6
 .RS 4n
-在指定的位置创建 \fBpkg\fR(5) 系统信息库。
+在指定的位置创建 \fBpkg\fR(7) 系统信息库。
 .sp
 该子命令仅可以与基于文件系统的系统信息库一起使用。
 .sp
@@ -371,7 +371,7 @@ pkgrepo \- 映像包管理系统的系统信息库管理实用程序
 .RS 4n
 列出 \fIrepo_uri_or_path\fR 系统信息库中与指定 \fIpkg_fmri_pattern\fR 模式匹配的软件包。如果未指定任何模式，将列出系统信息库中的所有软件包。\fIpkg_fmri_pattern\fR 模式可以包含 \fB?\fR 和 \fB*\fR 字符作为 \fBglob\fR(3C) 式通配符，以匹配一个或多个软件包。
 .sp
-在缺省输出中，第一列包含软件包发布者的名称。第二列包含软件包的名称。第三列是显示软件包状态的标志。状态列中的 \fBo\fR 值表示软件包已过时。状态列中的 \fBr\fR 值表示已重命名软件包，但格式已过时。第四列包含软件包的发行版本和分支版本。有关发行版本和分支版本的信息，请参见 \fBpkg\fR(5)。
+在缺省输出中，第一列包含软件包发布者的名称。第二列包含软件包的名称。第三列是显示软件包状态的标志。状态列中的 \fBo\fR 值表示软件包已过时。状态列中的 \fBr\fR 值表示已重命名软件包，但格式已过时。第四列包含软件包的发行版本和分支版本。有关发行版本和分支版本的信息，请参见 \fBpkg\fR(7)。
 .sp
 .ne 2
 .mk
@@ -414,7 +414,7 @@ pkgrepo \- 映像包管理系统的系统信息库管理实用程序
 .ad
 .sp .6
 .RS 4n
-仅显示指定软件包中的指定操作。可以多次指定 \fB-t\fR 选项；也可以通过使用逗号分隔操作名称，将多个操作指定为一个 \fB-t\fR 选项的参数。\fIaction_name\fR 的值是 \fBpkg\fR(5) 手册页的“操作”中列出的操作之一，例如 \fBfile\fR、\fBdir\fR、\fBdriver\fR、\fBdepend\fR 或 \fBset\fR。
+仅显示指定软件包中的指定操作。可以多次指定 \fB-t\fR 选项；也可以通过使用逗号分隔操作名称，将多个操作指定为一个 \fB-t\fR 选项的参数。\fIaction_name\fR 的值是 \fBpkg\fR(7) 手册页的“操作”中列出的操作之一，例如 \fBfile\fR、\fBdir\fR、\fBdriver\fR、\fBdepend\fR 或 \fBset\fR。
 .RE
 
 有关其他所有选项的描述，请参见上面的 \fBpkgrepo get\fR 命令。
@@ -949,7 +949,7 @@ URI，代表提供更多有关系统信息库信息的文档的位置（例如�
 .ad
 .sp .6
 .RS 4n
-显示一个用于唯一标识 \fBpkg\fR(5) 系统版本的字符串。由 \fBversion\fR 操作生成的值不能进行排序，并且对于在不平等情况下的比较而言是不安全的。
+显示一个用于唯一标识 \fBpkg\fR(7) 系统版本的字符串。由 \fBversion\fR 操作生成的值不能进行排序，并且对于在不平等情况下的比较而言是不安全的。
 .RE
 
 .SH 示例
@@ -1159,7 +1159,7 @@ $ \fBpkgrepo add-publisher -s /my/repository example.com\fR
 .SH 属性
 .sp
 .LP
-有关下列属性的说明，请参见 \fBattributes\fR(5)：
+有关下列属性的说明，请参见 \fBattributes\fR(7)：
 .sp
 
 .sp
@@ -1178,7 +1178,7 @@ _
 .SH 另请参见
 .sp
 .LP
-\fBpkg\fR(1)、\fBpkgrecv\fR(1)、\fBpkgsend\fR(1)、\fBpkg.depotd\fR(1M)、\fBpkg\fR(5)
+\fBpkg\fR(1)、\fBpkgrecv\fR(1)、\fBpkgsend\fR(1)、\fBpkg.depotd\fR(8)、\fBpkg\fR(7)
 .sp
 .LP
 \fI《Copying and Creating Package Repositories in Oracle Solaris 11.2》\fR
