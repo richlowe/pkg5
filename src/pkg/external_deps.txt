@@ -14,7 +14,7 @@
     pkg:/library/python/jsonrpclib-35
     pkg:/library/python/jsonschema-35
     pkg:/library/python/mako-35
-    pkg:/library/python/pep8-35
+    pkg:/library/python/pycodestyle-35
     pkg:/library/python/ply-35
     pkg:/library/python/portend-35
     pkg:/library/python/prettytable-35

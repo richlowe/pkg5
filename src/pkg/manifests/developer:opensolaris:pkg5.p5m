@@ -40,11 +40,11 @@ depend type=require fmri=pkg:/library/python/cryptography-35
 depend type=require fmri=pkg:/library/python/jsonrpclib-35
 depend type=require fmri=pkg:/library/python/jsonschema-35
 depend type=require fmri=pkg:/library/python/mako-35
-depend type=require fmri=pkg:/library/python/pep8-35
 depend type=require fmri=pkg:/library/python/ply-35
 depend type=require fmri=pkg:/library/python/portend-35
 depend type=require fmri=pkg:/library/python/prettytable-35
 depend type=require fmri=pkg:/library/python/pybonjour-35
+depend type=require fmri=pkg:/library/python/pycodestyle-35
 depend type=require fmri=pkg:/library/python/pycurl-35
 depend type=require fmri=pkg:/library/python/pyopenssl-35
 depend type=require fmri=pkg:/library/python/rapidjson-35
