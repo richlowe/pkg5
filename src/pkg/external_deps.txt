@@ -4,7 +4,6 @@
     pkg:/developer/build/make
     pkg:/developer/build/onbld
     pkg:/developer/gnome/gettext
-    pkg:/developer/gnome/gnome-doc-utils
     pkg:/developer/python/pylint
     pkg:/developer/versioning/mercurial
     pkg:/library/python/cffi-35
